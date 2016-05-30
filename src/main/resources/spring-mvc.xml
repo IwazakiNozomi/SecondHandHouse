@@ -19,19 +19,10 @@
 	<context:component-scan base-package="com.hwadee.SecondHandHouse.controller" />
 	
 	
-	<!-- 拦截器 -->
-	<mvc:interceptors>
-		<mvc:interceptor>
-			<!-- /u/18/home -->
-			<mvc:mapping path="/u/**" />
-			<bean class="com.hwadee.SecondHandHouse.interceptor.AuthInterceptor" ></bean>
-		</mvc:interceptor>
-	</mvc:interceptors>
-	
 	<!-- 视图 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     	<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
-        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="prefix" value=""/>
         <property name="suffix" value=".jsp"/>
     </bean>
 	

@@ -1,0 +1,10 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hwadee.SecondHandHouse.dao.CityDao">
+	<insert id="addcity" parameterType="City" useGeneratedKeys="true" keyProperty="cityId">
+		INSERT INTO city(parentCityId,cityName,remark)
+		VALUES(#{parentCityId},#{cityName},#{remark})
+	</insert>
+</mapper>
