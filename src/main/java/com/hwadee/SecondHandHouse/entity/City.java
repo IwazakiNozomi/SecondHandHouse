@@ -29,6 +29,11 @@ public class City {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
+	@Override
+	public String toString() {
+		return "City [cityId=" + cityId + ", parentCityId=" + parentCityId + ", cityName=" + cityName + ", remark="
+				+ remark + "]";
+	}
 	
 	
 }

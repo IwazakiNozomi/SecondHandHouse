@@ -28,6 +28,7 @@
   
   
   <dependencies>
+  	
   	<!-- junit测试包 -->
     <dependency>
       <groupId>junit</groupId>

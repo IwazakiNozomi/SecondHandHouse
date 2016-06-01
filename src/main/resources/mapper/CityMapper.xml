@@ -7,4 +7,17 @@
 		INSERT INTO city(parentCityId,cityName,remark)
 		VALUES(#{parentCityId},#{cityName},#{remark})
 	</insert>
+	
+	<select id="findbyid" parameterType="int"  resultType="City">
+		SELECT cityId,parentCityId,cityName,remark FROM city WHERE cityId = #{cityId}
+	</select>
+	
+	<select id="findchildrenbyid" parameterType="Int"  resultType="City">
+		SELECT cityId,parentCityId,cityName,remark FROM city WHERE parentCityId = #{cityId}
+	</select>
+	
+	<select id="findall" resultType="City">
+		SELECT cityId,parentCityId,cityName,remark FROM city
+	</select>
+	
 </mapper>
