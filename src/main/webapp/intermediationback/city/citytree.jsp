@@ -43,6 +43,13 @@
 				top:0px;
 				left:251px;
 			}
+			
+			.citypage {
+				position:absolute;
+				top:0px;
+				left:251px;
+			
+			}
 		</style>
 	</head>
 	<body>
@@ -58,14 +65,22 @@
 				</c:if>
 			</c:forEach>
 		</ul>
-		<div class="cityinfo">
-			<ul class="cityinfo">
+		<div class="infopage">
+			<ul class="cityinfo hidden">
 				<li><input type="text" /></li>
 				<li><input type="text" /></li>
 				<li><input type="text" /></li>
 				<li><input type="text" /></li>
+				<li>
+					<div class="areapage">
+						包含城区：
+						<table>
+						</table>
+					</div>
+				</li>
 			</ul>
-		</div>	
+			<div class="citypage">城市主页</div>
+		</div>
 	</body>
 	<script type="text/javascript">
 		$(function(){

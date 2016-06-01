@@ -35,6 +35,7 @@ public class CityController {
 		
 		model.addAttribute("citylist", clist);
 		
+		
 		return "/intermediationback/city/citytree.jsp" ;
 	}
 	
@@ -56,9 +57,7 @@ public class CityController {
 	
 	@RequestMapping("/findcitybyid/{cityId}")
 	public @ResponseBody City findcitybyid(@PathVariable("cityId") int cityId ){
-		System.out.println("ERROR!!!!");
 		City city = cityservice.findbyid(cityId);
-		System.out.println("ERROR");
 		return city;
 	}
 	

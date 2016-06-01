@@ -1,0 +1,11 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hwadee.SecondHandHouse.dao.AreaDao">
+	
+	<select id="findareabycityid" parameterType="int"  resultType="Area">
+		SELECT areaId,areaName,cityId,remark FROM area WHERE cityId = #{cityId}
+	</select>
+	
+</mapper>
