@@ -9,9 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.hwadee.SecondHandHouse.entity.Area;
 import com.hwadee.SecondHandHouse.entity.City;
+import com.hwadee.SecondHandHouse.service.interfaces.AreaService;
 import com.hwadee.SecondHandHouse.service.interfaces.CityService;
 
 @Controller
@@ -20,6 +23,9 @@ public class CityController {
 	
 	@Autowired
 	private CityService cityservice;
+	
+	@Autowired
+	private AreaService areaservice;
 	
 	@RequestMapping("/add")
 	public String addcity( City city )
@@ -32,7 +38,9 @@ public class CityController {
 	public String citylist( Model model )
 	{
 		List<City> clist = cityservice.findall();
+		List<Area> alist = areaservice.findallarea();
 		
+		model.addAttribute("arealist", alist);
 		model.addAttribute("citylist", clist);
 		
 		
@@ -61,4 +69,25 @@ public class CityController {
 		return city;
 	}
 	
+	@RequestMapping("/findcitybyname/{cityName}")
+	public @ResponseBody List<City> findcitybyname(@PathVariable("cityName") String cityName ){
+		
+		List<City> sclist = cityservice.searchcity(cityName);
+		return sclist;
+	}
+	
+	@RequestMapping(value="/updatecity", method=RequestMethod.POST)
+	public @ResponseBody int updatecity(City city )
+	{
+		int result = 0;
+		if( city.getCityId() == city.getParentCityId() )
+		{
+			return 0 ;
+		}
+		else
+		{
+			result = cityservice.updatecity(city);
+		}
+		return result;
+	}
 }

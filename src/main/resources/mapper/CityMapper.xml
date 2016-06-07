@@ -16,8 +16,19 @@
 		SELECT cityId,parentCityId,cityName,remark FROM city WHERE parentCityId = #{cityId}
 	</select>
 	
+	<select id="findbyname" parameterType="String"  resultType="City">
+		SELECT cityId,parentCityId,cityName,remark FROM city WHERE cityName LIKE #{cityName}
+	</select>
+	
 	<select id="findall" resultType="City">
 		SELECT cityId,parentCityId,cityName,remark FROM city
 	</select>
 	
+	<update id="updatecity" parameterType="City" >
+		UPDATE city
+		SET cityName = #{cityName},
+			parentCityId = #{parentCityId},
+			remark = #{remark}
+		WHERE cityId = #{cityId}
+	</update>
 </mapper>

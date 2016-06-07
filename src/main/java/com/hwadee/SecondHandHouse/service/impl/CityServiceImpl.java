@@ -43,5 +43,17 @@ public class CityServiceImpl implements CityService {
 		List<City> cclist = citydao.findchildrenbyid(cityId);
 		return cclist;
 	}
+
+	public int updatecity(City city) {
+		// TODO Auto-generated method stub
+		int result = citydao.updatecity(city);
+		return result;
+	}
+
+	public List<City> searchcity(String cityName) {
+		// TODO Auto-generated method stub
+		List<City> sclist = citydao.findbyname("%"+cityName+"%");
+		return sclist;
+	}
 	
 }

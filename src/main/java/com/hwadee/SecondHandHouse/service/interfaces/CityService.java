@@ -16,4 +16,10 @@ public interface CityService {
 	
 	//查找子城市id
 	List<City> findchildrenbyid(int cityId);
+	
+	//修改city的信息
+	int updatecity(City city);
+	
+	//搜索city
+	List<City> searchcity(String cityName);
 }

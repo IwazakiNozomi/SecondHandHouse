@@ -8,4 +8,28 @@
 		SELECT areaId,areaName,cityId,remark FROM area WHERE cityId = #{cityId}
 	</select>
 	
+	<select id="findallarea"  resultType="Area">
+		SELECT areaId,areaName,cityId,remark FROM area
+	</select>
+	
+	<select id="findbyname" parameterType="String"  resultType="Area">
+		SELECT areaId,cityId,areaName,remark FROM area WHERE areaName LIKE #{areaName}
+	</select>
+	
+	<insert id="deletearea" parameterType="Int">
+		DELETE FROM area WHERE areaId = #{areaId}
+	</insert>
+	
+	<delete id="addarea" parameterType="Int">
+		INSERT INTO area(areaName,cityId,remark)
+		VALUES(#{areaName},#{cityId},#{remark})
+	</delete>
+	
+	<update id="updatearea" parameterType="Area" >
+		UPDATE area
+		SET areaName = #{areaName},
+			cityId = #{cityId},
+			remark = #{remark}
+		WHERE areaId = #{areaId}
+	</update>
 </mapper>

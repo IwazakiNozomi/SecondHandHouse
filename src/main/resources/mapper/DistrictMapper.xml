@@ -8,4 +8,28 @@
 		SELECT districtId,districtName,areaId,remark FROM district WHERE areaId = #{areaId}
 	</select>
 	
+	<select id="finddistrictbydistrictid" parameterType="int"  resultType="District">
+		SELECT districtId,districtName,areaId,remark FROM district WHERE districtId = #{districtId}
+	</select>
+	
+	<select id="findbyname" parameterType="String"  resultType="District">
+		SELECT districtId,districtName,areaId,remark FROM district WHERE districtName LIKE #{districtName}
+	</select>
+	
+	<select id="findalldistrict"  resultType="District">
+		SELECT districtId,districtName,areaId,remark FROM district
+	</select>
+	
+	<update id="updatedis" parameterType="District" >
+		UPDATE district
+		SET districtName = #{districtName},
+			areaId = #{areaId},
+			remark = #{remark}
+		WHERE districtId = #{districtId}
+	</update>
+	
+	<insert id="adddistrict" parameterType="District" useGeneratedKeys="true" keyProperty="districtId">
+		INSERT INTO district(areaId,districtName,remark)
+		VALUES(#{areaId},#{districtName},#{remark})
+	</insert>
 </mapper>

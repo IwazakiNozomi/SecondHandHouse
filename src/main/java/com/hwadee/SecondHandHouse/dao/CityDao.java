@@ -14,5 +14,8 @@ public interface CityDao {
 	List<City> findchildrenbyid(int cityId);
 	//查找所有
 	List<City> findall();
-	
+	//修改city信息
+	int updatecity(City city);
+	//搜索city
+	List<City> findbyname(String cityName);
 }
